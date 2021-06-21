@@ -1,0 +1,191 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: #34495e;
+}
+
+#container {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+}
+
+#phones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:  wrap;
+  margin-bottom: 2em;
+}
+
+#window {
+  display: inline-block;
+  max-width: calc(100vw - 2rem);
+  margin: auto;
+  font-family: Consolas, ‘Andale Mono WT’, ‘Andale Mono’, ‘Lucida Console’, ‘Lucida Sans Typewriter’, ‘DejaVu Sans Mono’, ‘Bitstream Vera Sans Mono’, ‘Liberation Mono’, ‘Nimbus Mono L’, Monaco, ‘Courier New’, Courier, monospace;
+}
+
+#editor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#toolbar {
+  padding: .6rem 1rem .4rem;
+  background-color: #aaa;
+}
+
+#input {
+  width: 200px;
+  background-color: #fff;
+  padding: 1rem;
+  border: 3px solid #aaa;
+  font-family: Consolas, ‘Andale Mono WT’, ‘Andale Mono’, ‘Lucida Console’, ‘Lucida Sans Typewriter’, ‘DejaVu Sans Mono’, ‘Bitstream Vera Sans Mono’, ‘Liberation Mono’, ‘Nimbus Mono L’, Monaco, ‘Courier New’, Courier, monospace;
+  font-size: 1.2rem;
+  font-weight: bold;
+  outline: none;
+}
+
+#button {
+  padding: 0.6em 1em 0.5em;
+  margin-left: 1rem;
+  background-color: #222;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+#button:hover {
+  background-color: #111;
+}
+
+.phone {
+  position: relative;
+  width: 6em;
+  height: 10em;
+  margin: 1em;
+  background-color: #222;
+  border: 1em solid #111;
+  border-radius: 1em;
+  font-size: 12px;
+}
+
+.phone:after {
+  content: "";
+  position: absolute;
+  left: 2.75em;
+  top: calc(100% + 2.5em);
+  width: 0.5em;
+  height: 0;
+  margin: auto;
+  background-color: #fff;
+  transition: .3s height, .3s top;
+}
+
+.charging:after {
+  top: calc(100% + 1em);
+  height: 1.5em;
+}
+
+.low .battery {
+  position: absolute;
+  left: 1.25em;
+  top: 4em;
+  width: 3em;
+  height: 1.5em;
+  margin: auto;
+  border: 2px solid #fff;
+  box-shadow: inset .25em 0 0 red;
+}
+
+.low.charged .battery {
+  box-shadow: inset 3em 0 0 green;
+  transition: 1s box-shadow;
+}
+
+.low .battery:after {
+  content: "";
+  position: absolute;
+  left: calc(100% + 4px);
+  top: .25em;
+  width: 2px;
+  height: 1em;
+  background-color: #fff;
+}
+
+.win .phone:before {
+  content:  "❤️";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: calc(50% - .5em);
+  top: calc(50% - .5em);
+  font-size: 2em;
+  animation: 5s hearts linear infinite alternate;
+}
+
+.win .phone:nth-child(6n+2):before {
+  animation-delay: 1s;
+}
+
+.win .phone:nth-child(6n+3):before {
+  animation-delay: 2s;
+}
+
+.win .phone:nth-child(6n+4):before {
+  animation-delay: 3s;
+}
+
+.win .phone:nth-child(6n+5):before {
+  animation-delay: 4s;
+}
+
+.win .phone:nth-child(6n+6):before {
+  animation-delay: 5s;
+}
+
+.win .battery {
+  display: none;
+}
+
+@media screen and (max-width: 576px) {
+  .phone {
+    font-size: 8px;
+  }
+}
+
+@keyframes hearts {
+  0% {
+    content: "❤️";
+  }
+
+  20% {
+    content: "🧡";
+  }
+
+  40% {
+    content: "💛";
+  }
+
+  60% {
+    content: "💚";
+  }
+
+  80% {
+    content: "💙";
+  }
+
+  100% {
+    content: "💜";
+  }
+}
