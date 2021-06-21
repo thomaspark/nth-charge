@@ -16,7 +16,7 @@
         game.check();
       });
 
-      fetch('../levels.json')
+      fetch('./levels.json')
         .then(response => response.json())
         .then(data => {
           state.levels = data.levels;
